@@ -21,22 +21,22 @@ function(syscall, globalTimeout, alerts, utils, rootScope, uri, authconf, filter
 
   if (['http', 'https'].indexOf(uri.protocol()) != -1 && uri.host() != 'localhost') {
     configurations.push({
-      host: uri.host(),
+      host: 'localhost',
       path: '/jsonrpc',
       port: 6800,
       encrypt: false
     },
     {
-      host: uri.host(),
-      port: uri.port(),
+      host: 'localhost',
       path: '/jsonrpc',
-      encrypt: ( uri.protocol() == 'https' )
+      port: 6800,
+      encrypt: false
     },
     {
-      host: uri.host(),
-      port: uri.port(),
-      path: authconf.path,
-      encrypt: ( uri.protocol() == 'https' )
+      host: 'localhost',
+      path: '/jsonrpc',
+      port: 6800,
+      encrypt: false
     });
   }
 
